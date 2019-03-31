@@ -182,17 +182,66 @@ class NameLookupDirectory(object):
                 NameLookupDirectory._NameLookupDirectory()
 
     def add(self, name, name_id):
+        """This method will add a given name and its name id to
+        its lookup directory. Specifically, this method will
+        normalize and produce metaphones for the names before
+        adding them to the directory.
+
+        Parameters
+        ----------
+        name : str
+            A given name.
+        named_id : obj
+            The identifier of the name.
+        """
         NameLookupDirectory.__directory_instance.add(name, name_id)
 
     def add_names(self, names, name_ids):
+        """Given two list, one containing names and the other
+        of the ids corresponding to the names, this method will
+        add each of those names to its name lookup directory.
+
+        Parameters
+        ----------
+        names : Iterable of str
+            An iterable of names.
+        name_ids : Iterable of obj
+            An iterable of the corresponding name ids.
+        """
         NameLookupDirectory.__directory_instance.add_names(
             names, name_ids
         )
 
     def strong_matches(self):
+        """This method returns the name lookup directory
+        where weak metaphone matches were produced. The
+        keys of the returned dictionary correspond to the
+        metaphone. The values correspond to the name identifiers
+        whose name metaphones correspond to that particular
+        metaphone.
+
+        Returns
+        -------
+        dict {str: List of obj}
+            Returns a dictionary where name ids are mapped
+            to matching metaphones.
+        """
         return NameLookupDirectory.__directory_instance.strong_matches()
 
     def weak_matches(self):
+        """This method returns the name lookup directory
+        where strong metaphone matches were produced. The
+        keys of the returned dictionary correspond to the
+        metaphone. The values correspond to the name identifiers
+        whose name metaphones correspond to that particular
+        metaphone.
+
+        Returns
+        -------
+        dict {str: List of obj}
+            Returns a dictionary where name ids are mapped
+            to matching metaphones.
+        """
         return NameLookupDirectory.__directory_instance.weak_matches()
 
 
