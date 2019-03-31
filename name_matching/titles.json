@@ -1,1 +1,7 @@
-["MD", "M.D.", "Doctor", "DR", "DR.", "Dr", "Dr.", "dr", "dr."]
+[
+    "MADAME", "Madame", "madame", "Mme", "Mme.", "MME", "MME.", "mme", "mme.",
+    "MADEMOISELLE", "Mademoiselle", "mademoiselle", "MLLE", "MLLE.", "Mlle", "Mlle.", "mlle", "mlle.",
+    "MONSIEUR", "Monsieur", "monsieur", "MR", "MR.", "Mr", "Mr.", "mr", "mr.",
+    "MD", "M.D.", "Doctor", "DR", "DR.", "Dr", "Dr.", "dr", "dr.",
+    "PROFESSEUR", "Professeur", "professeur", "PROF", "PROF.", "Prof", "Prof.", "prof", "prof.", "PR", "PR.", "Pr", "Pr.", "pr", "pr."
+]
