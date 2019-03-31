@@ -181,22 +181,18 @@ class NameLookupDirectory(object):
             NameLookupDirectory.__directory_instance = \
                 NameLookupDirectory._NameLookupDirectory()
 
-    @classmethod
-    def add(cls, name, name_id):
+    def add(self, name, name_id):
         NameLookupDirectory.__directory_instance.add(name, name_id)
 
-    @classmethod
-    def add_names(cls, names, name_ids):
+    def add_names(self, names, name_ids):
         NameLookupDirectory.__directory_instance.add_names(
             names, name_ids
         )
 
-    @classmethod
-    def strong_matches(cls):
+    def strong_matches(self):
         return NameLookupDirectory.__directory_instance.strong_matches()
 
-    @classmethod
-    def weak_matches(cls):
+    def weak_matches(self):
         return NameLookupDirectory.__directory_instance.weak_matches()
 
 
