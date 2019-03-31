@@ -76,12 +76,66 @@ class DoubleMetaphoneMatcher(object):
 
         thresh = self._ensure_threshold_is_enum(threshold)
 
-        metaphone1 = self._double_metaphone(name1)
-        metaphone2 = self._double_metaphone(name2)
+        metaphone1 = self.double_metaphone(name1)
+        metaphone2 = self.double_metaphone(name2)
 
         is_a_match = self._compare_metaphones(metaphone1, metaphone2, thresh)
 
         return is_a_match
+
+    def is_weak_match(self, name1, name2):
+        """This method acts as a wrapper for the is_double_metaphone_match
+        method by using a weak threshold for its name comparison.
+
+        Parameters
+        ----------
+        name1 : str
+            A name to compare another name against.
+        name2 : str
+            A name to compare another name with.
+
+                Returns
+        -------
+        bool
+            Returns True if the name parameters match; False otherwise.
+        """
+        return self.is_double_metaphone_match(name1, name2, Threshold.WEAK)
+
+    def is_normal_match(self, name1, name2):
+        """This method acts as a wrapper for the is_double_metaphone_match
+        method by using a normal threshold for its name comparison.
+
+        Parameters
+        ----------
+        name1 : str
+            A name to compare another name against.
+        name2 : str
+            A name to compare another name with.
+
+                Returns
+        -------
+        bool
+            Returns True if the name parameters match; False otherwise.
+        """
+        return self.is_double_metaphone_match(name1, name2, Threshold.NORMAL)
+
+    def is_strong_match(self, name1, name2):
+        """This method acts as a wrapper for the is_double_metaphone_match
+        method by using a strong threshold for its name comparison.
+
+        Parameters
+        ----------
+        name1 : str
+            A name to compare another name against.
+        name2 : str
+            A name to compare another name with.
+
+                Returns
+        -------
+        bool
+            Returns True if the name parameters match; False otherwise.
+        """
+        return self.is_double_metaphone_match(name1, name2, Threshold.STRONG)
 
     def _ensure_threshold_is_enum(self, threshold):
         """This method ensures that the threshold parameter
@@ -128,7 +182,7 @@ class DoubleMetaphoneMatcher(object):
         else:
             return thresh
 
-    def _double_metaphone(self, name):
+    def double_metaphone(self, name):
         """This method returns the metaphone values
         associated with a name as a tuple. See the
         metaphone.doublemetaphone method for implementation
